@@ -1,14 +1,14 @@
 //
-//  FaithInDailyLifeUITests.swift
-//  FaithInDailyLifeUITests
+//  FaithInDailyLifeUITest.swift
+//  FaithInDailyLifeUITest
 //
-//  Created by Shreya Shresth on 24.04.20.
+//  Created by Shreya Shresth on 04.08.20.
 //  Copyright © 2020 Shreya Shresth. All rights reserved.
 //
 
 import XCTest
 
-class FaithInDailyLifeUITests: XCTestCase {
+class FaithInDailyLifeUITest: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

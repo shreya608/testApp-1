@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Start View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="StartViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="StartViewController" customModule="FaithInDailyLife" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" colorLabel="IBBuiltInLabel-Red">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome Comarade" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mib-DF-7GW">
+                                <rect key="frame" x="46.666666666666657" y="74" width="282" height="36"/>
+                                <color key="backgroundColor" red="0.34509803921568627" green="0.55294117647058827" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <rect key="contentStretch" x="0.10000000000000001" y="0.45000000000000001" width="1" height="1"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3o-qh-khl">
+                                <rect key="frame" x="72.666666666666686" y="482" width="230" height="42"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Daily Encouragement">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1fR-ff-l1o">
+                                <rect key="frame" x="42" y="410" width="291" height="42"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="5" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Start Planning Your Activity">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H1s-Ov-vjW"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lotus" translatesAutoresizingMaskIntoConstraints="NO" id="s5S-9Q-vwO">
+                                <rect key="frame" x="-26" y="140" width="427" height="240"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.34509803921568627" green="0.55294117647058827" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.89803921568627454" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="j3o-qh-khl" firstAttribute="top" secondItem="1fR-ff-l1o" secondAttribute="bottom" constant="30" id="31S-42-CAG"/>
+                            <constraint firstItem="j3o-qh-khl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="41v-8q-aLu"/>
+                            <constraint firstItem="1fR-ff-l1o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AhW-tn-gCm"/>
+                            <constraint firstItem="mib-DF-7GW" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Dut-Xz-Vtw"/>
+                            <constraint firstItem="s5S-9Q-vwO" firstAttribute="top" secondItem="mib-DF-7GW" secondAttribute="bottom" constant="30" id="EY1-lJ-mc2"/>
+                            <constraint firstItem="1fR-ff-l1o" firstAttribute="top" secondItem="s5S-9Q-vwO" secondAttribute="bottom" constant="30" id="RJW-sJ-4Iv"/>
+                            <constraint firstItem="s5S-9Q-vwO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lgL-fb-Q5W"/>
+                            <constraint firstItem="mib-DF-7GW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="p2f-Nt-gE2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-518" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Lotus" width="426.66665649414062" height="240"/>
+    </resources>
+</document>
