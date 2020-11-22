@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController,UITextFieldDelegate {
+class LoginViewController: UIViewController {
     
     
     @IBOutlet weak var enterUsername: UITextField!
@@ -18,7 +18,7 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var submitButton: UIButton!
     
-    var Authenticate = Authentication()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,57 +27,50 @@ class LoginViewController: UIViewController,UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
+
+    
+}
+   
+//MARK: - UITextFieldDelegate
+extension LoginViewController:UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         print(enterUsername.text!)
         print(enterPassword.text!)
         return true
     }
     
-    @IBAction func enterUsername(_ sender: Any) {
-        print(enterUsername.text!)
-        enterUsername.endEditing(true)
-        
-    }
-    
-    @IBAction func enterPassword(_ sender: Any) {
-        print(enterPassword.text!)
-        enterPassword.endEditing(true)
-        
-    }
     
     
     @IBAction func submitOption(_ sender: UIButton) {
-        submitButton.endEditing(true)
-        print(submitButton.textInputMode!)
-        print("go to the next screen")
         
-        let storyboard = UIStoryboard(name: "Start", bundle: Bundle(for: StartViewController.self))
-        let secondVC = storyboard.instantiateViewController(identifier:("StartViewController"))
-        self.present(secondVC, animated: true, completion: nil)
+        let Authenticate = Authentication(Username: enterUsername.text!, Password: enterPassword.text!)
+        let dataValue = Authenticate.performRequest()
+        print("print the data",dataValue)
         
-        
-    }
+
+         if enterUsername.text != ""{
+            if enterPassword.text != "" {
+                
+                let storyboard = UIStoryboard(name: "Start", bundle: Bundle(for: StartViewController.self))
+                       let secondVC = storyboard.instantiateViewController(identifier:("StartViewController"))
+                       self.present(secondVC, animated: true, completion: nil)
+                
+                print(submitButton.textInputMode!)
+                print("go to the next screen")
+                
+            }
+         else {
+                enterUsername.placeholder = "Please type something"
+                enterPassword.placeholder = "Please type something"
+                print("Please type something")
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
+            }
+           
+            
         }
-        else {
-            textField.placeholder = "type something"
-            return false
-        }
-              
-    }
+        
     
 }
-    /*
-     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-
+}

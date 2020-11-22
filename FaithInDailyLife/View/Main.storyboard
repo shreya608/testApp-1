@@ -20,9 +20,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" keyboardAppearance="alert" secureTextEntry="YES"/>
-                                <connections>
-                                    <action selector="enterPassword:" destination="tQV-Em-ZuH" eventType="editingDidEnd" id="snc-cb-uVg"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ty5-D7-sbs">
                                 <rect key="frame" x="135" y="425" width="144" height="47"/>
@@ -31,6 +28,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.5490196078431373" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="submitOption:" destination="tQV-Em-ZuH" eventType="touchUpInside" id="s6y-XC-W8u"/>
@@ -54,13 +52,10 @@
                                 <rect key="frame" x="105" y="238" width="224" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" keyboardKey="YES"/>
+                                    <accessibilityTraits key="traits" staticText="YES" adjustable="YES"/>
                                 </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="emailAddress" keyboardAppearance="alert"/>
-                                <connections>
-                                    <action selector="enterUsername:" destination="tQV-Em-ZuH" eventType="editingDidEnd" id="KVa-zE-Ilr"/>
-                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.34509803921568627" green="0.55294117647058827" blue="0.6588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +63,7 @@
                     </view>
                     <connections>
                         <outlet property="enterPassword" destination="eJh-cV-crs" id="3ov-ot-sKs"/>
-                        <outlet property="enterUsername" destination="YfX-Xe-HfN" id="0OI-zX-3Kr"/>
+                        <outlet property="enterUsername" destination="YfX-Xe-HfN" id="uI7-Fg-nOI"/>
                         <outlet property="submitButton" destination="Ty5-D7-sbs" id="BGI-E7-3Z0"/>
                     </connections>
                 </viewController>

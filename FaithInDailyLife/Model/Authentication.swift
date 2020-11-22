@@ -8,37 +8,67 @@
 
 import Foundation
 
+
 struct Authentication {
+    
+    var Username: String
+    var Password: String
+    
     let authenticateAPI = "https://sgi-rails.herokuapp.com/user_token"
     
-    func fetch(Username: String,Password: String) {
-        let UrlString = "\(authenticateAPI)&q=\(Username)&q=\(Password)"
-        performRequest(urlString: UrlString)
-        
-    }
+    //var parameter = ["username": Username,"password": Password]
     
-    func performRequest(urlString : String){
+  
+    func performRequest(){
         //1. Create a URL
-          if let url = URL(string: urlString){
-              //2. Create a URLSession
-            let session = URLSession(configuration: .default)
-            //3. Give the session a Task
-            let task = session.dataTask(with: url, completionHandler: handle(data:urlresponse:error:))
-            //4. Start the task
-            task.resume()
+        let session = URLSession.shared
+        let url = URL(string: authenticateAPI)!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let json = [ "auth": [
+            "email": "\(Username)",
+            "password": "\(Password)"
             
-        }
+            ]
+        ]
+        
+        let jsonData = try! JSONSerialization.data(withJSONObject: json, options: [])
+        
+        let task = session.uploadTask(with: request, from: jsonData) {
+            data, response, error in
+            
+            if let data = data {
+                parseJson(token: data)
+            }
+                
+            if let httpResponse = response as? HTTPURLResponse {
+                    print(httpResponse.statusCode)
+                }
+                
+                if error != nil {
+                    print(error!)
+                    return
+                }
+            }
+        
+        task.resume()
+        
+}
+
+}
+        
+func parseJson(token : Data){
+    let decoder = JSONDecoder()
+    do {
+        let decodeData = try decoder.decode(fetchToken.self, from: token)
+        print (decodeData.jwt)
+    }
+    catch {
+        print(error)
     }
     
-    func handle(data: Data?, urlresponse: URLResponse?, error: Error?){
-        if error != nil {
-            print(error!)
-            return
-        }
-        if let safeData = data {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString!)
-        }
-        
-    }
 }

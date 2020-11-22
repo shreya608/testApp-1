@@ -15,66 +15,65 @@ class startPlanningViewController : UIViewController {
     @IBOutlet weak var enterCity: UITextField!
     
     let city = ["","Berlin","Frankfurt","Cologne"]
-  
     
+  
+    @IBOutlet weak var enterGroup: UITextField!
+    
+    let GroupBerlin = ["","BBS","BBN","BBP"]
+    
+    let GroupFrankfurt = ["","Hello","World"]
+    
+    let GroupCologne = ["","Hello","World"]
     // static func create()->startPlanningViewController {
-        
+    @IBOutlet weak var ConfirmButton: UIButton!
+    
+    
     func city_OnSelect(selectedText: String)
            {
+            DispatchQueue.main.async {
                if selectedText == "Berlin" {
-                print("hello")
+               
+                self.enterGroup.loadDropdownData(data: self.GroupBerlin, onSelect: self.Group_OnSelect(selectedText:))
+                
                }
                else if selectedText == "Frankfurt" {
-                print("hello frankfurt")
+                
+                self.enterGroup.loadDropdownData(data: self.GroupFrankfurt, onSelect: self.Group_OnSelect(selectedText:))
                }
+                
                else {
-                   print("hello cologne")
+                
+                self.enterGroup.loadDropdownData(data: self.GroupCologne, onSelect: self.Group_OnSelect(selectedText:))
                }
                }
-
+    }
+    
+    func Group_OnSelect(selectedText: String) {
+         print("hello")
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         enterCity.loadDropdownData(data: city, onSelect: city_OnSelect(selectedText:))
         
-   
-       
-      //  loadDropdownData(city)
-       // let pickerView = UIPickerView()
-       // pickerView.delegate = self
-        
-        //enterCity.inputView = pickerView
-        
-     //  let label = UILabel()
-     //  print("the second view loaded")
-     //  view.addSubview(label)
+
+               
     }
     
-//    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//          return 1
-//      }
-//
-//      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return city.count
-//      }
-//
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return city[row]
-//    }
-//
-//    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-//        enterCity.text = city[row]
-//    }
-//
-//    /*
-//    // MARK: - Navigation
-//
-//    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-   // }
-   // */
-
+    @IBAction func ConfirmPressed(_ sender: UIButton) {
+       
+        
+        let Storyboard = UIStoryboard(name: "Plan", bundle: Bundle(for: PlanViewController.self))
+           
+        let PlanVC = Storyboard.instantiateViewController(identifier:("PlainViewController"))
+        self.present(PlanVC, animated: true, completion: nil)
+        
+           
+    }
 }
+
+
+
